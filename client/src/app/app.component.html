@@ -1,0 +1,15 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{title}}!
+  </h1>
+  <form (submit)="send()">
+    <input type="text" [(ngModel)]="message" id="message" name="message"/>
+    <input type="submit" value="Envoyer mon message"/>
+  </form>
+
+  <ul *ngIf="TouslesMessages">
+    <li *ngFor="let message of TouslesMessages.message">
+      {{ message}}
+    </li>
+  </ul>
