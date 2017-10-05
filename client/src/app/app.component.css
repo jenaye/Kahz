@@ -15,13 +15,14 @@ p {
   margin: 0 21px 2em;
   border-radius: 1em;
   padding: 0.9em 5em;
-  background: #e5e5ea;
+  background: rgba(25, 147, 147, 0.2);
   max-width: 75%;
   clear: both;
   position: relative;
 }
 p.them {
   float: left;
+  color:#0EC879;
 }
 p.them::after {
   content: "";
@@ -30,13 +31,13 @@ p.them::after {
   bottom: 0;
   width: 0.5em;
   height: 1em;
-  border-right: 0.5em solid #e5e5ea;
+  border-right: 0.5em solid rgba(25, 147, 147, 0.2);
   border-bottom-right-radius: 1em 0.5em;
 }
 p.me {
   float: right;
-  background-color: #1289fe;
-  color: white;
+  background-color: rgba(25, 147, 147, 0.2);
+  color: #0AD5C1;
 }
 p.me::after {
   content: "";
@@ -45,7 +46,7 @@ p.me::after {
   bottom: 0;
   width: 0.5em;
   height: 1em;
-  border-left: 0.5em solid #1289fe;
+  border-left: 0.5em solid rgba(25, 147, 147, 0.2);
   border-bottom-left-radius: 1em 0.5em;
 }
 .btn {
