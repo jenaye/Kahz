@@ -4,12 +4,14 @@
     Welcome to {{title}}!
   </h1>
 
-  <ul class="chat-thread" *ngIf="TouslesMessages" #scrollMe style="overflow: scroll; height: xyz;">
-    <li *ngFor="let message of TouslesMessages">
-        <b style="color:white;">  {{ message.userid }} :</b> {{  message.message }}
-    </li>
-  </ul>
+  <blockquote class="chat" *ngIf="TouslesMessages" #scrollMe style="overflow: scroll; height: xyz;">
+    <p [ngClass]="[userid == message.userid ? 'me' : 'them']" *ngFor="let message of TouslesMessages">
+      <b style="color:white;">  {{ message.userid }} :</b> {{  message.message }}
+    </p>
+  </blockquote>
+  <br/>
 
   <form class="chat-window" (submit)="send()">
   	<input [(ngModel)]="message" id="message" name="message" class="chat-window-message" name="chat-window-message" type="text" autocomplete="off" autofocus />
+    <input class="btn" type="submit" value="Valider">
   </form>
