@@ -3,13 +3,13 @@
   <h1>
     Welcome to {{title}}!
   </h1>
-  <form (submit)="send()">
-    <input type="text" [(ngModel)]="message" id="message" name="message"/>
-    <input type="submit" value="Envoyer mon message"/>
-  </form>
 
-  <ul *ngIf="TouslesMessages">
+  <ul class="chat-thread" *ngIf="TouslesMessages" #scrollMe style="overflow: scroll; height: xyz;">
     <li *ngFor="let message of TouslesMessages">
-      {{ message | json}}
+        <b style="color:white;">  {{userid }} :</b> {{  message.message}}
     </li>
   </ul>
+
+  <form class="chat-window" (submit)="send()">
+  	<input [(ngModel)]="message" id="message" name="message" class="chat-window-message" name="chat-window-message" type="text" autocomplete="off" autofocus />
+  </form>
