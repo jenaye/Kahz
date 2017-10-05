@@ -6,7 +6,7 @@
 
   <ul class="chat-thread" *ngIf="TouslesMessages" #scrollMe style="overflow: scroll; height: xyz;">
     <li *ngFor="let message of TouslesMessages">
-        <b style="color:white;">  {{userid }} :</b> {{  message.message}}
+        <b style="color:white;">  {{ message.userid }} :</b> {{  message.message }}
     </li>
   </ul>
 

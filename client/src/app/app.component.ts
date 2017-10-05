@@ -20,13 +20,14 @@ export class AppComponent implements OnInit, AfterViewChecked {
    */
   ngOnInit() {
     this.TouslesMessages = [];
-    this.socket.on('ShowMessage', data => {
-      this.TouslesMessages = data.TouslesMessages;
-    })
+
     this.socket.on('userid', data => {
       this.userid = data.userid;
-      console.log(this.userid) // un id
-    })
+      console.log(this.userid)
+        this.socket.on('ShowMessage', data => {
+            this.TouslesMessages = data.TouslesMessages;
+        });
+   })
    this.scrollToBottom();
   }
 
@@ -37,8 +38,9 @@ export class AppComponent implements OnInit, AfterViewChecked {
     if(this.message == ''){
       console.log('desole string vide')
     }else{
-      let data = {"message": this.message, "userid ": new Date()}
-      this.socket.emit('new', data)
+      let data = {"message": this.message, "userid": this.userid }
+      console.log(data)
+      this.socket.emit('newMessage', data)
       this.TouslesMessages.push(data)
     }
 

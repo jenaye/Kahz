@@ -10,9 +10,8 @@ socket.on('connection', (client) => {
     /*
     quand l'user envoi un message on recupere et on stock dans un tableau
      */
-    client.on('new', data => {
+    client.on('newMessage', data => {
         AllMessage.push(data)
-        console.log(AllMessage)
         client.broadcast.emit('ShowMessage', { TouslesMessages: AllMessage } )
     })
     client.emit('userid', { userid : client.id});

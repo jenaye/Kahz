@@ -9,6 +9,9 @@ body {
   background-color: black;
 }
 
+h1{
+  color:white;
+}
 
 ::-webkit-scrollbar {
   width: 10px;
@@ -134,7 +137,7 @@ body {
 @media all and (min-width: 768px) {
   .chat-thread {
     width: 70%;
-    height: 320px;
+    height: 764px;
   }
 
   .chat-window {
