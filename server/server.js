@@ -15,7 +15,9 @@ socket.on('connection', (client) => {
         client.broadcast.emit('ShowMessage', { TouslesMessages: AllMessage } )
     })
     client.emit('userid', { userid : client.id});
+  //   socket.broadcast.emit('new-connection', { "NewUser": client.id }  ) 
 })
+
 
 
 server.listen(8000, () =>  console.log('API listening on port 8000'))
