@@ -11,7 +11,13 @@
   </blockquote>
   <br/>
 
+
+
   <form class="chat-window" (submit)="send()">
-  	<input [(ngModel)]="message" id="message" name="message" class="chat-window-message" name="chat-window-message" type="text" autocomplete="off" autofocus />
-    <input class="btn" type="submit" value="Valider">
-  </form>
+  <div class="centered">
+    <div class="group">
+  	<input [(ngModel)]="message" id="message" name="message" class="chat-window-message input" name="chat-window-message" type="text" autocomplete="off" autofocus />
+    <div class="bar"></div>
+    </div>
+  </div>
+    </form>
