@@ -23,6 +23,9 @@ export class AppComponent implements OnInit, AfterViewChecked {
                 this.TouslesMessages = data.TouslesMessages;
           });
       })
+      this.socket.on('new-connection', data => {
+        alert('les gars il y a un nouveau mec qui est la' + data.NewUser)
+      })
     this.scrollToBottom();
   }
 
