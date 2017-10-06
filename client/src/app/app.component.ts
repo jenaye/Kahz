@@ -1,5 +1,5 @@
 import {Component, AfterViewChecked, ElementRef, ViewChild, OnInit} from '@angular/core';
-import * as io from "socket.io-client";
+import * as io from 'socket.io-client';
 
 @Component({
   selector: 'app-root',
@@ -15,35 +15,26 @@ export class AppComponent implements OnInit, AfterViewChecked {
   title = 'Kahz';
   socket = io('http://localhost:8000');
 
-  /*
-  init on recupere les messages du tableau
-   */
   ngOnInit() {
-    this.TouslesMessages = [];
-
-    this.socket.on('userid', data => {
-      this.userid = data.userid;
-      console.log(this.userid)
-        this.socket.on('ShowMessage', data => {
-            this.TouslesMessages = data.TouslesMessages;
-        });
-   })
-   this.scrollToBottom();
+      this.TouslesMessages = [];
+      this.socket.on('userid', data => {
+          this.userid = data.userid;
+          this.socket.on('ShowMessage', data => {
+                this.TouslesMessages = data.TouslesMessages;
+          });
+      })
+    this.scrollToBottom();
   }
 
   send() {
-    /*
-    check if string != null
-    */
-    if(this.message == ''){
-      console.log('desole string vide')
-    }else{
-      let data = {"message": this.message, "userid": this.userid }
-      console.log(data)
-      this.socket.emit('newMessage', data)
-      this.TouslesMessages.push(data)
+      if(this.message == '') {
+        console.log('desole string vide')
+    } else {
+        const data = {'message': this.message, 'userid': this.userid }
+        console.log(data)
+        this.socket.emit('newMessage', data)
+        this.TouslesMessages.push(data)
     }
-
   }
 
   ngAfterViewChecked() {
