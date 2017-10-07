@@ -16,7 +16,7 @@
   <form class="chat-window" (submit)="send()">
   <div class="centered">
     <div class="group">
-  	<input [(ngModel)]="message" id="message" name="message" class="chat-window-message input" name="chat-window-message" type="text" autocomplete="off" autofocus />
+  	<input [(ngModel)]="message" ng-trim="false" id="message" name="message" class="chat-window-message input" name="chat-window-message" type="text" autocomplete="off" autofocus />
     <div class="bar"></div>
     </div>
   </div>

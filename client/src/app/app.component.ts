@@ -30,8 +30,8 @@ export class AppComponent implements OnInit, AfterViewChecked {
   }
 
   send() {
-      if(this.message == '') {
-        console.log('desole string vide')
+      if(this.message.length < 0) {
+        alert('Message vide')
     } else {
         const data = {'message': this.message, 'userid': this.userid }
         console.log(data)
