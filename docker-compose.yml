@@ -1,0 +1,13 @@
+version: '2' # docker-compose version
+
+# Define the services/containers to be run
+services:
+  angular: # name of the first service
+    build: client # repertoire dockerfile de angular
+    ports:
+      - "4200:4200" #port forewarding
+
+  server: # service Server
+    build: server
+    ports:
+      - "8000:8000" #ports forewarding
