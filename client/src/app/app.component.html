@@ -1,8 +1,9 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
-  <h1>
-    Welcome to {{title}}!
+  <h1 style="color:white;">
+    Welcome to {{title}}!<br/>
   </h1>
+  <span style="color:red">you are {{ counter }} on the chat</span>
 
   <blockquote class="chat" *ngIf="TouslesMessages" #scrollMe style="overflow: scroll; height: xyz;">
     <p [ngClass]="[userid == message.userid ? 'me' : 'them']" *ngFor="let message of TouslesMessages">
