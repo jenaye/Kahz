@@ -1,4 +1,4 @@
-version: '2' # docker-compose version
+version: '3' # docker-compose version
 
 # Define the services/containers to be run
 services:
