@@ -41,7 +41,6 @@ export class AppComponent implements OnInit, AfterViewChecked {
     } else {
         this.encrypt = btoa(this.message);
         const data = {'message': this.encrypt, 'userid': this.userid }
-        console.log(this.encrypt)
         this.socket.emit('newMessage', data)
         // show decrypted message when user submit it
         data.message = atob(data.message);
