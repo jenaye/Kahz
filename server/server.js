@@ -8,7 +8,6 @@ socket.on('connection', (client) => {
    console.log('USER ID =>', client.id)
    console.log('PPL CONNECTED => ', socket.engine.clientsCount);
    client.on('newMessage', data => {
-      console.log('encrypted base64 message => ', data.message);
       var decode =  Buffer.from(data.message, 'base64').toString();
       data.message = decode;
       AllMessage.push(data)
