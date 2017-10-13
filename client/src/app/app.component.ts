@@ -13,7 +13,7 @@ export class AppComponent implements OnInit, AfterViewChecked {
   private userid: string;
   private counter: any;
   private encrypt:any;
-
+  
   title = 'Kahz';
   socket = io('http://localhost:8000');
 
@@ -29,9 +29,13 @@ export class AppComponent implements OnInit, AfterViewChecked {
         alert('les gars il y a un nouveau mec qui est la' + data.NewUser)
       })
       this.socket.on('counter', data => {
-        this.counter = data.counter;
+          this.counter = data.counter;
       })
-      
+      this.socket.on('LogoutSession', data => {
+              alert(data.logoutMessage)
+
+      })
+
     this.scrollToBottom();
   }
 
