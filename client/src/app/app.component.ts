@@ -12,7 +12,8 @@ export class AppComponent implements OnInit, AfterViewChecked {
   private TouslesMessages: any[];
   private userid: string;
   private counter: any;
-
+  private encrypt:any;
+  
   title = 'Kahz';
   socket = io('http://localhost:8000');
 
@@ -34,6 +35,7 @@ export class AppComponent implements OnInit, AfterViewChecked {
               alert(data.logoutMessage)
 
       })
+
     this.scrollToBottom();
   }
 
@@ -41,9 +43,11 @@ export class AppComponent implements OnInit, AfterViewChecked {
       if(this.message.length < 0) {
         alert('Message vide')
     } else {
-        const data = {'message': this.message, 'userid': this.userid }
-        console.log(data)
+        this.encrypt = btoa(this.message);
+        const data = {'message': this.encrypt, 'userid': this.userid }
         this.socket.emit('newMessage', data)
+        // show decrypted message when user submit it
+        data.message = atob(data.message);
         this.TouslesMessages.push(data)
     }
   }
