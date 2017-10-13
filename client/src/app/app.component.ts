@@ -11,6 +11,7 @@ export class AppComponent implements OnInit, AfterViewChecked {
   private message: string;
   private TouslesMessages: any[];
   private userid: string;
+  private counter: any;
 
   title = 'Kahz';
   socket = io('http://localhost:8000');
@@ -25,6 +26,13 @@ export class AppComponent implements OnInit, AfterViewChecked {
       })
       this.socket.on('new-connection', data => {
         alert('les gars il y a un nouveau mec qui est la' + data.NewUser)
+      })
+      this.socket.on('counter', data => {
+          this.counter = data.counter;
+      })
+      this.socket.on('LogoutSession', data => {
+              alert(data.logoutMessage)
+
       })
     this.scrollToBottom();
   }
