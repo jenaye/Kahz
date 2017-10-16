@@ -16,12 +16,11 @@ export class AppComponent implements OnInit, AfterViewChecked {
   private userid: string;
   private counter: any;
   private encrypt: any;
-
-    public options = {
-        position: ['top', 'right'],
-        timeOut: 5000,
-        lastOnBottom: true
-    }
+  public options = {
+      position: ['top', 'right'],
+      timeOut: 5000,
+      lastOnBottom: true
+  }
   title = 'Kahz';
   socket = io('http://localhost:8000');
 
