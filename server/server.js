@@ -18,7 +18,7 @@ socket.on('connection', (client) => {
     client.broadcast.emit('new-connection', { "NewUser": client.id }  )
     client.on('disconnect', function()  {
         console.log('Socket disconnected !',client.id);
-        client.broadcast.emit('LogoutSession', { 'logoutMessage': 'un utilisateur vient de se deconnecter' }  )
+        client.broadcast.emit('LogoutSession', { 'logoutMessage': 'user just logout' }  )
     });
 })
 

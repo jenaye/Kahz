@@ -1,5 +1,6 @@
 import {Component, AfterViewChecked, ElementRef, ViewChild, OnInit} from '@angular/core';
 import * as io from 'socket.io-client';
+import {NotificationsService} from 'angular2-notifications';
 
 @Component({
   selector: 'app-root',
@@ -7,13 +8,20 @@ import * as io from 'socket.io-client';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit, AfterViewChecked {
+
+  constructor( private notif: NotificationsService ) {}
   @ViewChild('scrollMe') private myScrollContainer: ElementRef;
   private message: string;
   private TouslesMessages: any[];
   private userid: string;
   private counter: any;
-  private encrypt:any;
-  
+  private encrypt: any;
+
+    public options = {
+        position: ['top', 'right'],
+        timeOut: 5000,
+        lastOnBottom: true
+    }
   title = 'Kahz';
   socket = io('http://localhost:8000');
 
@@ -26,13 +34,23 @@ export class AppComponent implements OnInit, AfterViewChecked {
           });
       })
       this.socket.on('new-connection', data => {
-        alert('les gars il y a un nouveau mec qui est la' + data.NewUser)
+           this.notif.warn('New user connected', data.NewUser, {
+              timeOut: 3000,
+              showProgressBar: true,
+              pauseOnHover: true,
+              clickToClose: true
+          });
       })
       this.socket.on('counter', data => {
           this.counter = data.counter;
       })
       this.socket.on('LogoutSession', data => {
-              alert(data.logoutMessage)
+          this.notif.info('User disconnect', data.logoutMessage, {
+              timeOut: 3000,
+              showProgressBar: true,
+              pauseOnHover: true,
+              clickToClose: true
+          });
 
       })
 
