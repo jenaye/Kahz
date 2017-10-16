@@ -23,3 +23,9 @@ docker-compose up --build
 *cd client && npm i && npm start*
 
 *cd server && npm i && nodemond server.js // use node server.json if u don't have nodemon*
+
+# Notifications #
+
+i used notification when someone enter in the chat && logout 
+
+link : https://www.npmjs.com/package/angular4-notifications
